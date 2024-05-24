@@ -8,14 +8,14 @@ export default defineConfig({
   title: "LOLI.AE",
   base: "/",
   cacheDir: "./node_modules/vitepress_cache",
-  description: "vitepress,blog,blog-theme",
+  description: "blog,loli.ae",
   ignoreDeadLinks: true,
   themeConfig: {
     posts: await getPosts(pageSize),
     website: "https://github.com/airene/vitepress-blog-pure", //copyright link
     // 评论的仓库地址
     comment: {
-      repo: "airene/vitepress-blog-pure",
+      repo: "afridvalde/blog",
       themes: "github-light",
       issueTerm: "pathname",
     },
@@ -30,7 +30,7 @@ export default defineConfig({
     search: {
       provider: "local",
     },
-    //outline:[2,3],
+    outline:[2,3],
     outlineTitle: "文章摘要",
     socialLinks: [
       // { icon: 'github', link: 'https://github.com/airene/vitepress-blog-pure' }
@@ -42,6 +42,9 @@ export default defineConfig({
     //build: { minify: false }
     server: { port: 5000 },
   },
+  sitemap: {
+    hostname: 'https://loli.ae'
+  }
   /*
       optimizeDeps: {
           keepNames: true
