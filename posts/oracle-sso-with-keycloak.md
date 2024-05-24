@@ -130,7 +130,7 @@ description:
 
 ![](https://ah7ki.loli.ae/2024/05/24/a023cd4555cf54deb281fc8185b3dc7d.webp)
 
-## 可选：为Keycloak登录跳过MFA
+## 步骤10：为Keycloak登录跳过MFA（可选）
 
 在 `Security` 下的 `Sign-on policies` 页面中点击 `Security Policy for OCI Console`
 
@@ -143,6 +143,8 @@ description:
 点击 `Edit priority` 将设置的规则置顶
 
 ![](https://ah7ki.loli.ae/2024/05/24/af82ca0549800dfcbf916166e5781d42.webp)
+
+## 步骤11：测试登录
 
 不关闭当前页面，令开一个浏览器测试登录效果
 
