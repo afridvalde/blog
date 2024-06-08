@@ -4,7 +4,7 @@ title: 在Linux中禁止某个用户登录
 category: Linux
 tags:
   - Linux
-description: 在 Linux 中，我们可以通过修改 `/etc/passwd` 文件来禁止特定用户（例如 `opc` 用户）登录。我们需要将用户的 shell 改为 `/sbin/nologin` 或 `/bin/false`。这可以通过使用 `usermod` 命令来完成。
+description: 在 Linux 中，我们可以通过修改 /etc/passwd 文件来禁止特定用户（例如 opc 用户）登录。
 ---
 
 # 在Linux中禁止某个用户登录
