@@ -30,7 +30,7 @@ export default defineConfig({
     search: {
       provider: "local",
     },
-    outline:[2,3],
+    outline: [2, 3],
     outlineTitle: "文章摘要",
     socialLinks: [
       // { icon: 'github', link: 'https://github.com/airene/vitepress-blog-pure' }
@@ -43,8 +43,8 @@ export default defineConfig({
     server: { port: 5000 },
   },
   sitemap: {
-    hostname: 'https://loli.ae'
-  }
+    hostname: "https://loli.ae",
+  },
   /*
       optimizeDeps: {
           keepNames: true

@@ -1,21 +1,22 @@
 {
-  "name": "loli.ae",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-      "dev": "vitepress dev --host 0.0.0.0",
-      "build": "vitepress build",
-      "preview": "vitepress preview"
-  },
-  "keywords": [],
-  "author": "",
-  "type": "module",
-  "license": "ISC",
-  "devDependencies": {
-      "vitepress": "^1.2.2",
-      "globby": "^14.0.1",
-      "gray-matter": "^4.0.3",
-      "fs-extra": "^11.2.0"
-  }
+    "name": "loli.ae",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "vitepress dev --host 0.0.0.0",
+        "build": "vitepress build",
+        "preview": "vitepress preview"
+    },
+    "keywords": [],
+    "author": "",
+    "type": "module",
+    "license": "ISC",
+    "devDependencies": {
+        "fs-extra": "^11.2.0",
+        "globby": "^14.0.1",
+        "gray-matter": "^4.0.3",
+        "medium-zoom": "^1.1.0",
+        "vitepress": "^1.2.2"
+    }
 }
