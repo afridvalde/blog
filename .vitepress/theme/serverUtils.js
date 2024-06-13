@@ -18,7 +18,7 @@ async function getPosts(pageSize) {
         frontMatter: data,
         regularPath: `/${item.replace(".md", ".html")}`,
       };
-    })
+    }),
   );
   posts.sort(_compareDate);
   return posts;
