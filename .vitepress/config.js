@@ -7,6 +7,7 @@ const pageSize = 10;
 export default defineConfig({
   title: "LOLI.AE",
   base: "/",
+  cleanUrls: true,
   cacheDir: "./node_modules/vitepress_cache",
   description: "blog,loli.ae",
   ignoreDeadLinks: true,
