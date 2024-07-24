@@ -252,4 +252,4 @@ oci iam group add-user \
 
 等待一会，一封激活邮件就会发送到 `admin@xxx.xxx`，按邮件提示激活登录即可
 
-![active.webp](https://ah7ki.loli.ae/blog/2024/07/24/236da0d17739d268aa9b0419d136cd93.webp)
+![active.webp](https://ah7ki.loli.ae/2024/07/24/236da0d17739d268aa9b0419d136cd93.webp)
