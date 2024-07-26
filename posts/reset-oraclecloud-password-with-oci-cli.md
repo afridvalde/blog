@@ -1,9 +1,9 @@
 ---
-date: 2024-05-24
+date: 2024-07-25
 title: 利用oci-cli重置Oracle Cloud用户密码
 category: Oracle Cloud
 tags:
-- Oracle Cloud
+- Oracle Clou
 description: 
 ---
 
