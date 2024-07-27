@@ -1,4 +1,6 @@
 import DefaultTheme from "vitepress/theme";
+import type { Theme } from 'vitepress'
+
 import { onMounted, watch, nextTick } from "vue";
 import { useRoute } from "vitepress";
 import mediumZoom from "medium-zoom";
@@ -37,4 +39,18 @@ export default {
       () => nextTick(() => initZoom()),
     );
   },
-};
+} satisfies Theme;
+
+
+// export default {
+//     ...DefaultTheme,
+//     Layout: NewLayout,
+//     enhanceApp({ app }) {
+//         // register global compoment
+//         app.component('Tags', Tags)
+//         app.component('Category', Category)
+//         app.component('Archives', Archives)
+//         app.component('Page', Page)
+//         app.component('Comment', Comment)
+//     }
+// } satisfies Theme

@@ -1,42 +1,54 @@
 <template>
   <div v-for="(article, index) in posts" :key="index" class="post-list">
-    <div class="post-header">
-      <div class="post-title">
-        <a :href="withBase(article.regularPath)">
-          {{ article.frontMatter.title }}</a
-        >
+      <div class="post-header">
+          <div class="post-title">
+              <a :href="withBase(article.regularPath)"> {{ article.frontMatter.title }}</a>
+          </div>
       </div>
-    </div>
-    <p class="describe" v-html="article.frontMatter.description"></p>
-    <div class="post-info">
-      {{ article.frontMatter.date }}
-      <span v-for="item in article.frontMatter.tags"
-        ><a :href="withBase(`/pages/tags.html?tag=${item}`)">
-          {{ item }}</a
-        ></span
-      >
-    </div>
+      <p class="describe" v-html="article.frontMatter.description"></p>
+      <div class='post-info'>
+          {{ article.frontMatter.date }} <span v-for="item in article.frontMatter.tags"><a :href="withBase(`/pages/tags.html?tag=${item}`)"> {{ item }}</a></span>
+      </div>
   </div>
 
   <div class="pagination">
-    <a
-      class="link"
-      :class="{ active: pageCurrent === i }"
-      v-for="i in pagesNum"
-      :key="i"
-      :href="withBase(i === 1 ? '/index.html' : `/page_${i}.html`)"
-      >{{ i }}</a
-    >
+      <a
+          class="link"
+          :class="{ active: pageCurrent === i }"
+          v-for="i in pagesNum"
+          :key="i"
+          :href="withBase(i === 1 ? '/index.html' : `/page_${i}.html`)"
+      >{{ i }}</a>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { withBase } from "vitepress";
-const props = defineProps({
-  posts: Array,
-  pageCurrent: Number,
-  pagesNum: Number,
-});
+
+import { withBase } from 'vitepress'
+import { PropType } from 'vue'
+interface Article {
+  regularPath: string
+  frontMatter: {
+      title: string
+      description: string
+      date: string
+      tags: string[]
+  }
+}
+defineProps({
+  posts: {
+      type: Array as PropType<Article[]>,
+      required: true
+  },
+  pageCurrent: {
+      type: Number as PropType<number>,
+      required: true
+  },
+  pagesNum: {
+      type: Number as PropType<number>,
+      required: true
+  }
+})
 </script>
 
 <style scoped>
@@ -95,29 +107,29 @@ const props = defineProps({
 
 @media screen and (max-width: 768px) {
   .post-list {
-    padding: 14px 0 14px 0;
+      padding: 14px 0 14px 0;
   }
   .post-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
   }
   .post-title {
-    font-size: 1.0625rem;
-    font-weight: 400;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    width: 17rem;
+      font-size: 1.0625rem;
+      font-weight: 400;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      width: 17rem;
   }
   .describe {
-    font-size: 0.9375rem;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
-    margin: 0.5rem 0 1rem;
+      font-size: 0.9375rem;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+      margin: 0.5rem 0 1rem;
   }
 }
 </style>

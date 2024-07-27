@@ -1,35 +1,36 @@
 <template>
   <div class="tags">
-    <span @click="toggleTag(key)" v-for="(item, key) in data" class="tag">
-      {{ key }} <strong>{{ data[key].length }}</strong>
-    </span>
+      <span @click="toggleTag(String(key))" v-for="(_, key) in data" class="tag">
+          {{ key }} <strong>{{ data[key].length }}</strong>
+      </span>
   </div>
   <div class="tag-header">{{ selectTag }}</div>
   <a
-    :href="withBase(article.regularPath)"
-    v-for="(article, index) in data[selectTag]"
-    :key="index"
-    class="posts"
+      :href="withBase(article.regularPath)"
+      v-for="(article, index) in selectTag ? data[selectTag] : []"
+      :key="index"
+      class="posts"
   >
-    <div class="post-container">
-      <div class="post-dot"></div>
-      {{ article.frontMatter.title }}
-    </div>
-    <div class="date">{{ article.frontMatter.date }}</div>
+      <div class="post-container">
+          <div class="post-dot"></div>
+          {{ article.frontMatter.title }}
+      </div>
+      <div class="date">{{ article.frontMatter.date }}</div>
   </a>
 </template>
 <script lang="ts" setup>
-import { computed, ref } from "vue";
-import { useData, withBase } from "vitepress";
-import { initTags } from "../functions";
-let url = location.href.split("?")[1];
-let params = new URLSearchParams(url);
-const { theme } = useData();
-const data = computed(() => initTags(theme.value.posts));
-let selectTag = ref(params.get("tag") ? params.get("tag") : "");
+import { computed, ref } from 'vue'
+import { useData, withBase } from 'vitepress'
+import { initTags } from '../functions'
+
+let url = location.href.split('?')[1]
+let params = new URLSearchParams(url)
+const { theme } = useData()
+const data = computed(() => initTags(theme.value.posts))
+let selectTag = ref(params.get('tag') ? params.get('tag') : '')
 const toggleTag = (tag: string) => {
-  selectTag.value = tag;
-};
+  selectTag.value = tag
+}
 </script>
 
 <style scoped>
@@ -38,6 +39,7 @@ const toggleTag = (tag: string) => {
   display: flex;
   flex-wrap: wrap;
 }
+
 .tag {
   display: inline-block;
   padding: 4px 16px;
@@ -50,9 +52,11 @@ const toggleTag = (tag: string) => {
   color: var(--vp-c-text-1);
   cursor: pointer;
 }
+
 .tag strong {
   color: var(--vp-c-brand);
 }
+
 .tag-header {
   font-size: 1.5rem;
   font-weight: 500;
@@ -62,10 +66,11 @@ const toggleTag = (tag: string) => {
 
 @media screen and (max-width: 768px) {
   .tag-header {
-    font-size: 1.5rem;
+      font-size: 1.5rem;
   }
+
   .date {
-    font-size: 0.75rem;
+      font-size: 0.75rem;
   }
 }
 </style>

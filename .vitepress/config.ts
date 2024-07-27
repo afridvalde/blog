@@ -36,16 +36,16 @@ export default defineConfig({
     socialLinks: [
       // { icon: 'github', link: 'https://github.com/airene/vitepress-blog-pure' }
     ],
-  },
+  } as any,
   srcExclude: ["README.md"], // exclude the README.md , needn't to compiler
 
   vite: {
     //build: { minify: false }
     server: { port: 5000 },
-  },
+  } as any,
   sitemap: {
     hostname: "https://loli.ae",
-  },
+  } as any,
   head: [
     [
       "script",
